@@ -5,7 +5,6 @@ using System.Windows;
 using System.Windows.Documents;
 using ScintillaNET.WPF;
 using System.Drawing;
-using ScintillaNET_FindReplaceDialog;
 using System.Windows.Media;
 
 namespace DacTaHinhThuc
