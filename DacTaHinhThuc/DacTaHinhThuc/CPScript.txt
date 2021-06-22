@@ -1,0 +1,41 @@
+﻿#include <string>
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+
+int KiemTra_[func_name]([inputvar_wtype]) 
+{ 
+     if [pre_conditions] 
+         return 1; 
+        return 0; 
+} 
+void Xuat_[func_name]([outputvar_wtype]) 
+{
+      cout<< "Ket qua la: "<<[outputvar];
+} 
+void Nhap_[func_name]([cp_inputvar_wtype]) 
+{ 
+	
+      	[input_calls2]
+} 
+float [func_name]([inputvar_wtype]) 
+{ 
+      [outputvar_wtype] = [output_constructor];
+      [post_conditions] 
+      	return [outputvar];
+} 
+int main() 
+{ 
+	[input_type_constuctor]
+	[outputvar_wtype] = [output_constructor];
+	Nhap_[func_name]([cp_inputvar]);
+	if (KiemTra_[func_name]([inputvar]) ==1)
+	{ 
+		[outputvar]=[func_name]([inputvar]);
+		Xuat_[func_name]([outputvar]);
+	} 
+	else 
+		cout<< " Thông tin nhập không hợp lệ  "; 
+}
+
+

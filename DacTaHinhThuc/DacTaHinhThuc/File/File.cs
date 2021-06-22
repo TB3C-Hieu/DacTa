@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.IO;
+
 namespace DacTaHinhThuc
 {
     class File
@@ -13,9 +14,6 @@ namespace DacTaHinhThuc
             bool? result = openFileDialog1.ShowDialog();
             if (result == true)
             {
-                // DiaChi.Text = openFileDialog1.FileName;
-                //NoiDung.Text = File.ReadAllText(openFileDialog1.FileName);
-                // str_file = File.
                 using (var sr = new StreamReader(openFileDialog1.FileName))
                 {
                     str_file = sr.ReadToEnd();
@@ -33,7 +31,6 @@ namespace DacTaHinhThuc
                 if (str_file!=null)
                 using (var sr = new StreamReader(str_file))
                 {
-                    // Read the stream as a string, and write the string to the console.
                     str_read = sr.ReadToEnd();
                 }
             }
@@ -62,22 +59,6 @@ namespace DacTaHinhThuc
                 sw.Write(text);
                 sw.Dispose();
             }
-
-        }
-
-        internal static bool Exists(string v)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal static void Delete(string v)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal static void WriteAllText(string v, string source)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -1,0 +1,42 @@
+﻿using System; 
+namespace FormalSpecification 
+{ 
+      public class Progam
+      { 
+            public int KiemTra_[func_name]([inputvar_wtype]) 
+            { 
+                if [pre_conditions] 
+                    return 1; 
+                return 0; 
+            } 
+            public void Xuat_[func_name]([outputvar_wtype]) 
+            { 
+               Console.WriteLine( "Ket qua la: {0} " , [outputvar]);
+            } 
+            public void Nhap_[func_name]([ref_inputvar_wtype]) 
+            { 
+                [input_calls]
+            } 
+            public float [func_name]([inputvar_wtype]) 
+            { 
+                [outputvar_wtype] = [output_constructor];
+                [post_conditions] 
+                return [outputvar];
+            } 
+            public static void Main(string[] agrs) 
+            { 
+                [input_type_constuctor]
+                [outputvar_wtype] = [output_constructor];
+                Progam p = new Progam(); 
+                p.Nhap_[func_name]([ref_inputvar]);
+                if (p.KiemTra_[func_name]([inputvar]) ==1)
+                { 
+                    [outputvar]=p.[func_name]([inputvar]);
+                    p.Xuat_[func_name]([outputvar]);
+                } 
+                else 
+                Console.WriteLine( " Thông tin nhập không hợp lệ  "); 
+                Console.ReadLine(); 
+            }
+      } 
+ }

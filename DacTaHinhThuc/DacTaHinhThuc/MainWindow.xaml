@@ -5,158 +5,114 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
         xmlns:local="clr-namespace:DacTaHinhThuc"
-        xmlns:sn="https://github.com/fernandreu/ScintillaNET.WPF"
+        xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
         x:Class="DacTaHinhThuc.MainWindow"
         mc:Ignorable="d"
-        Title="Formal Specification" Height="700" Width="1000" Background="#FFEEEEEE" BorderBrush="#FF0C0C0C" OpacityMask="Black">
-    <Grid x:Name="grid">
+        Title="Formal Specification" Height="700" Width="1000" Background="#B9E7E8" BorderBrush="#FF0C0C0C" OpacityMask="Black">
 
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Button Content="Python" 
-                HorizontalAlignment="Left" 
-                Margin="451,60,0,0" 
-                VerticalAlignment="Top"
-                Width="48" 
-                Click="PyClick" 
-                Background="#FFEEEEEE" Foreground="Blue" Height="19"/>
-        <Button Content="C#" 
-                HorizontalAlignment="Left" 
-                Margin="504,60,0,0" 
+    <DockPanel Margin="0,0,-0.4,0.4" Height="670" VerticalAlignment="Bottom">
+        <Menu DockPanel.Dock="Top" Height="31" Margin="0,0,-0.4,0" VerticalAlignment="Center" Background="#B9E7E8">
+            <MenuItem Header="_File" VerticalAlignment="Center" HorizontalAlignment="Center" Height="31" Width="62">
+                <MenuItem Header="_New" Click="NewButton_Click" />
+                <MenuItem Header="_Open" Click="OpenButton_Click" />
+                <MenuItem Header="_Save" Click="SaveButton_Click" />
+                <Separator />
+                <MenuItem Header="_Exit" Click="ExitButton_Click" />
+            </MenuItem>
+        </Menu>
+        <ToolBar DockPanel.Dock="Top" Height="31" Margin="0,0,-0.4,0">
+            <ToolBar.Resources>
+                <Style TargetType="{x:Type Image}">
+                </Style>
+            </ToolBar.Resources>
+            <Button Click="OpenButton_Click">
+                <Image Source="resource\Open.png" Height="16"/>
+            </Button>
+            <Button Click="SaveButton_Click">
+                <Image Source="resource\Save.png" Height="16"/>
+            </Button>
+            <Button Click="NewButton_Click">
+                <Image Source="resource\New.png" Height="16"/>
+            </Button>
+            <Separator/>
+            <Button Command="Cut">
+                <Image Source="resource/Cut.png" Height="16"/>
+            </Button>
+            <Button Command="Copy">
+                <Image Source="resource/Copy.png" Height="16"/>
+            </Button>
+            <Button Command="Paste">
+                <Image Source="resource/Paste.png" Height="16"/>
+            </Button>
+            <Separator/>
+            <Button Command="Undo">
+                <Image Source="resource/Undo.png" Height="16"/>
+            </Button>
+            <Button Command="Redo">
+                <Image Source="resource/Redo.png" Height="16"/>
+            </Button>
+            <Separator/>
+            <Button  Content="C#" Height="20"  Click="CSClick" 
+                ></Button>
+            <Button  Content="C++" Height="20"  Click="CPClick"
+                ></Button>
+        </ToolBar>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="16*"/>
+                <ColumnDefinition Width="54*"/>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="254*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="BulidButon" 
+                Content="Build solution" 
+                HorizontalAlignment="Left"
+                Height="37"
+                Margin="437.8,26,0,0"
                 VerticalAlignment="Top" 
-                Width="48" 
-                Click="CSClick" 
-                Background="#FFEEEEEE" Foreground="Blue" 
-                Height="19" 
-                RenderTransformOrigin="-0.691,0.363"/>
-        <Button Content="Open" 
-                HorizontalAlignment="Left" 
-                Margin="65,40,0,0" 
-                VerticalAlignment="Top" 
-                Width="40" 
-                Click="OpenButton_Click" 
-                Height="40" 
-                Foreground="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="openfile.png"/>
-            </Button.Background>
-        </Button>
-        <Button Content="Save" 
-                HorizontalAlignment="Left" 
-                Margin="115,40,0,0"
-                VerticalAlignment="Top" 
-                Width="40" 
-                Click="SaveButton_Click" 
-                Height="40" 
-                Foreground="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="images.jpg"/>
-            </Button.Background>
-        </Button>
-        <Button Content="New" 
-                HorizontalAlignment="Left" 
-                Margin="10,40,0,0" 
-                VerticalAlignment="Top" 
-                Width="40" 
-                Click="NewButton_Click" 
-                Height="40" 
-                Foreground="{x:Null}">
-            <Button.Background>
-                <ImageBrush ImageSource="newfile.png"/>
-            </Button.Background>
-        </Button>
-        <ToolBarPanel HorizontalAlignment="Left" 
-                      Height="24" 
-                      VerticalAlignment="Top" 
-                      Width="794">
-            <Button x:Name="FileButon" 
-                    Content="File" 
-                    Click="Button_Click_FileButon" 
-                    Margin="0,0,720.6,0" Height="28" 
-                    HorizontalAlignment="Right" 
-                    Width="73" 
-                    Background="#FFEEEEEE" Foreground="Blue"/>
-        </ToolBarPanel>
-        <TextBox x:Name="ClassNameTextBox" 
-                 Height="31" 
-                 Margin="132,122,0,0" 
+                Width="190" 
+                Click="BuildBtn_Click"
+                Background="White" Foreground="Blue" Grid.Column="3"/>
+            <Label Content="Class name" 
+               HorizontalAlignment="Left" 
+               Height="37"
+               Margin="30,10,0,0" 
+               VerticalAlignment="Top"
+               Width="75" 
+               BorderBrush="Gray" Foreground="Blue" OpacityMask="Black" Grid.ColumnSpan="2"/>
+            <Label Content="Exe file name" 
+               HorizontalAlignment="Left" 
+               Height="31" 
+               Margin="30,52,0,0" 
+               VerticalAlignment="Top" 
+               Width="97" 
+               BorderBrush="Gray" Foreground="Blue" OpacityMask="Black" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="ClassNameTextBox" 
+                 Height="37" 
+                 Margin="84,10,0,0" 
                  TextWrapping="Wrap" 
                  Text="Progam" 
                  VerticalAlignment="Top"
                  Width="140" 
                  HorizontalAlignment="Left" 
-                 Background="#FFEEEEEE" Foreground="Blue"/>
-        <TextBox x:Name="ExitFileNameTextBox" 
+                 Background="White" Foreground="Blue" Grid.Column="1" Grid.ColumnSpan="3"/>
+            <TextBox x:Name="ExitFileNameTextBox" 
                  HorizontalAlignment="Left"
-                 Height="31" Margin="132,158,0,0" 
+                 Height="31" Margin="84,52,0,0" 
                  TextWrapping="Wrap"
                  Text="Application.exe"
                  VerticalAlignment="Top"
                  Width="140"
-                 Background="#FFEEEEEE" Foreground="Blue"/>
-        <Button x:Name="BulidButon" 
-                Content="Build solution" 
-                HorizontalAlignment="Left"
-                Height="34"
-                Margin="294,136,0,0"
-                VerticalAlignment="Top" 
-                Width="100" 
-                Click="BuildBtn_Click"
-                Background="#FFEEEEEE" Foreground="Blue"/>
-        <Label Content="Class name" 
-               HorizontalAlignment="Left" 
-               Height="31"
-               Margin="30,122,0,0" 
-               VerticalAlignment="Top"
-               Width="75" 
-               BorderBrush="Gray" Foreground="Blue" OpacityMask="Black"/>
-        <Label Content="Exe file name" 
-               HorizontalAlignment="Left" 
-               Height="31" 
-               Margin="30,158,0,0" 
-               VerticalAlignment="Top" 
-               Width="97" 
-               BorderBrush="Gray" Foreground="Blue" OpacityMask="Black"/>
-        <sn:ScintillaWPF x:Name="InputArea" 
-                         Margin="10,194,0,5.4" 
-                         Foreground="#FFEEEEEE" 
-                         BorderBrush="Black" 
-                         Background="#114D9C00" 
-                         OpacityMask="Black" 
-                         HorizontalAlignment="Left" Width="420"/>
-        <sn:ScintillaWPF x:Name="OutputArea"
-                         Margin="451,84,9.6,5.4"
-                         BorderBrush="Black"/>
-        <StackPanel x:Name="FilePanel" 
-                    Margin="0,24,0,0" 
-                    HorizontalAlignment="Left" 
-                    VerticalAlignment="Top" 
-                    Width="105" Height="124" >
-            <Button Content="New"
-                    Height="31" 
-                    Click="NewButton_Click" 
-                    Margin="0,0,-0.4,0" 
-                    Background="#FFEEEEEE" Foreground="Blue"/>
-            <Button Content="Open" 
-                    Height="31"
-                    Click="OpenButton_Click" 
-                    Margin="0,0,-0.4,0"
-                    Background="#FFEEEEEE" Foreground="Blue" 
-                    RenderTransformOrigin="0.558,0.026"/>
-            <Button Content="Save" 
-                    Height="31" 
-                    Click="SaveButton_Click" 
-                    Margin="0,0,-0.4,0"
-                    Background="#FFEEEEEE" Foreground="Blue"/>
-            <Button Content="Exit" 
-                    Height="31" 
-                    Click="ExitButton_Click"
-                    Margin="0,0,-0.4,0"
-                    Background="#FFEEEEEE" Foreground="Blue"/>
-        </StackPanel>
-    </Grid>
+                 Background="White" Foreground="Blue" Grid.Column="1" Grid.ColumnSpan="3"/>
+            <avalonEdit:TextEditor x:Name="InputArea" 
+                         Margin="10,88,0,5" 
+                         HorizontalAlignment="Left" Width="480" Grid.ColumnSpan="4"/>
+            <avalonEdit:TextEditor
+                x:Name="OutputArea"
+                         Margin="263.8,89,9.6,0"
+                         SyntaxHighlighting="C#"
+                         FontSize="10pt"
+                         ShowLineNumbers="True" Grid.Column="3"/>
+        </Grid>
+    </DockPanel>
 </Window>
