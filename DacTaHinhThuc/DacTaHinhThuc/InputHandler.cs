@@ -287,7 +287,7 @@ namespace DacTaHinhThuc
             }
             return result;
         }
-        public void Run(string appName, string source)
+       /* public void Run(string appName, string source)
         {
             string[] char_split = { "." };
             string[] str_s = appName.Split(char_split, System.StringSplitOptions.RemoveEmptyEntries);
@@ -311,7 +311,7 @@ namespace DacTaHinhThuc
             CompilerResults results = icc.CompileAssemblyFromSource(parameters, source);
 
             Process.Start(appName);
-        }
+        }*/
     }
 
 }

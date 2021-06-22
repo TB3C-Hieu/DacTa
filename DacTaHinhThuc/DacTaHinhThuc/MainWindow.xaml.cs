@@ -55,13 +55,13 @@ namespace DacTaHinhThuc
             current = state.cp;
             OutputArea.Text = csharp.toCSharp(path2, InputArea.Text);
         }
-        private void BuildBtn_Click(object sender, RoutedEventArgs e)
+     /*   private void BuildBtn_Click(object sender, RoutedEventArgs e)
         {
             string text = InputArea.Text;
             string text_out = csharp.toCSharp(path, InputArea.Text);
             InputHandler.Run(ExitFileNameTextBox.Text,text_out);
         }
-
+*/
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();

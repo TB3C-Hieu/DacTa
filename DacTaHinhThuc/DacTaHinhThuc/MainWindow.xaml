@@ -64,15 +64,15 @@
                 <ColumnDefinition Width="7*"/>
                 <ColumnDefinition Width="254*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="BulidButon" 
-                Content="Build solution" 
+            <!--<Button x:Name="BulidButon" 
+                Content="Build" 
                 HorizontalAlignment="Left"
                 Height="37"
                 Margin="437.8,26,0,0"
                 VerticalAlignment="Top" 
                 Width="190" 
                 Click="BuildBtn_Click"
-                Background="White" Foreground="Blue" Grid.Column="3"/>
+                Background="White" Foreground="Blue" Grid.Column="3"/>-->
             <Label Content="Class name" 
                HorizontalAlignment="Left" 
                Height="37"
