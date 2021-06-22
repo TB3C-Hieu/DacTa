@@ -4,7 +4,7 @@ using System.IO;
 
 namespace DacTaHinhThuc
 {
-    class File
+    class MenuFile
     {
         public string OpenFile()
         {

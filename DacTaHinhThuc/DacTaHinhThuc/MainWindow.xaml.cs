@@ -24,7 +24,7 @@ namespace DacTaHinhThuc
         string path2 = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"CPScript.txt");
         enum state { cp, csharp };
         state current = state.csharp;
-        File file_handler = new File();
+        MenuFile file_handler = new MenuFile();
         public MainWindow()
         {
             InitializeComponent();
